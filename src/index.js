@@ -2,14 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import OrderNew from './pages/OrderNew';
+import App from './components/App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <OrderNew />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

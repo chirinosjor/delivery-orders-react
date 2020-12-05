@@ -4,6 +4,21 @@ import '../assets/styles/OrderNew.css';
 import OrderForm from '../components/OrderForm';
 
 class OrderNew extends React.Component {
+  state = { form: {
+    orderCode: '',
+    orderApp: '',
+    orderName: '',
+  } };
+
+  handleChange = e => {
+    this.setState({
+      form: {
+        ...this.state.form,
+        [e.target.name]: e.target.value,
+      }
+    })
+  }
+
   render() {
     return (
       <div className="order-new">
@@ -14,14 +29,14 @@ class OrderNew extends React.Component {
               <h1>Order Preview</h1>
               <Order 
                 orderStatus="Pending" 
-                orderCode="ABC123" 
-                orderName="Jorge Chirinos" 
-                orderApp="Uber eats"
+                orderCode={this.state.form.orderCode} 
+                orderName={this.state.form.orderName} 
+                orderApp={this.state.form.orderApp} 
                />
             </div>
 
             <div className="col-6">
-              <OrderForm />
+              <OrderForm onChange={this.handleChange} formValues={this.state.form} />
             </div>
           </div>
         </div>

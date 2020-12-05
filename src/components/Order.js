@@ -3,12 +3,6 @@ import '../assets/styles/Order.css'
 
 class Order extends React.Component {
   render() {
-
-    const orderStatus = "Pending"
-    const orderCode = "ABC123"
-    const orderName = "Jorge Chirinos"
-    const orderApp = "Uber eats"
-
     return(
       <div className="order">
         <div className="order-status">
