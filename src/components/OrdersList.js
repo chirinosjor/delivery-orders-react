@@ -18,19 +18,19 @@ class OrdersList extends React.Component {
             <div key={order.orderId}>
               <div className="order">
                 <div className="order-status">
-                  <p>{order.orderStatus}</p>
+                  <p>{order.order_status}</p>
                 </div>
 
                 <div className="order-code">
-                  <p>{order.orderCode}</p>
+                  <p>{order.order_code}</p>
                 </div>
 
                 <div className="order-name">
-                  <p>{order.orderName}</p>
+                  <p>{order.order_name}</p>
                 </div>
 
                 <div className="order-app">
-                  <p>{order.orderApp}</p>
+                  <p>{order.order_app}</p>
                 </div>
               </div>
             </div>
