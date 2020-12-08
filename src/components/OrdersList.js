@@ -4,6 +4,13 @@ import '../assets/styles/OrderList.css'
 
 class OrdersList extends React.Component {
   render() {
+    if(this.props.orders.length === 0) {
+      return (
+        <div>
+          <h3>Orders not found</h3>
+        </div>
+      )
+    }
     return (
       <div className="order-list">
         {this.props.orders.map((order) => {

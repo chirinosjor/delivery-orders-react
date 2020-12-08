@@ -6,81 +6,33 @@ import '../assets/styles/Orders.css'
 
 class Orders extends React.Component {
   state = {
-    data: [
-      {
-        "orderId": "1",
-        "orderStatus": "Pending", 
-        "orderCode": "ABC123",
-        "orderName": "Pepito Perez",
-        "orderApp": "Rappi"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },
-      {
-        "orderId": "3",
-        "orderStatus": "Pending", 
-        "orderCode": "RFV321",
-        "orderName": "Juan Rivas",
-        "orderApp": "Uber Eats"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },   
-    ]
+    loading: true,
+    error: null,
+    data: []
+  };
+
+  componentDidMount () {
+    this.fetchData();
+  }
+
+  fetchData = async () => {
+    this.setState({ loading: true, error: null})
+
+    try {
+      const url = 'http://localhost:3000/orders';
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log(data)
+      this.setState({loading: false, data: data})
+    } catch (error){
+      this.setState({loading: false, error: error})
+    }
   }
 
   render() {
+    if(this.state.loading === true) {
+      return 'Loading...'
+    }
     return (
       <div>
         <h1>Current orders</h1>
