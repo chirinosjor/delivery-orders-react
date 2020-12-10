@@ -19,6 +19,30 @@ class OrderNew extends React.Component {
     })
   }
 
+  // handleSubmit = e => {
+  //   e.preventDefault()
+  //   this.setState({ loading: true, error: null })
+  //   alert('A form was submitted')
+
+  //   try {
+  //     const url = 'http://localhost:3000/orders';
+  //     const data = {
+  //       orderStatus:this.state.form.orderStatus, 
+  //       orderCode:this.state.form.orderCode,
+  //       orderName:this.state.form.orderName,
+  //       orderApp:this.state.form.orderApp
+  //     }
+  //     fetch(url, { method: 'POST', // or ‘PUT’
+  //       body: JSON.stringify(data), // data can be `string` or {object}!
+  //       headers:{ 'Content-Type': 'application/json' } })
+  //     this.setState({ loading: false })
+  //   } catch (error) {
+  //     this.setState({ loading: false, error: error })
+  //   }
+  // }
+
+  
+
   render() {
     return (
       <div className="order-new">
@@ -28,15 +52,19 @@ class OrderNew extends React.Component {
             <div className="col-6">
               <h1>Order Preview</h1>
               <Order 
-                orderStatus="Pending" 
-                orderCode={this.state.form.orderCode} 
-                orderName={this.state.form.orderName} 
-                orderApp={this.state.form.orderApp} 
+                orderStatus={this.state.form.orderStatus || "Pending"} 
+                orderCode={this.state.form.orderCode || "Code"} 
+                orderName={this.state.form.orderName || "Name"} 
+                orderApp={this.state.form.orderApp || "App"} 
                />
             </div>
 
             <div className="col-6">
-              <OrderForm onChange={this.handleChange} formValues={this.state.form} />
+              <OrderForm 
+                onChange={this.handleChange}
+                onClick={this.handleClick}
+                formValues={this.state.form} 
+              />
             </div>
           </div>
         </div>

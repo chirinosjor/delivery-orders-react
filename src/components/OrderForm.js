@@ -11,21 +11,31 @@ class OrderForm extends React.Component {
   // };
 
   handleClick = e => {
-    alert('A form was submitted')
+    console.log('A form was submitted')
+    const object = {
+      "order": {
+        "order_status": "Pending",
+        "order_app": this.props.formValues.orderApp,
+        "order_code": this.props.formValues.orderCode,
+        "order_name": this.props.formValues.orderName,
+      }
+    };
+  
 
-    // fetch('https://your-node-server-here.com/api/endpoint', {
-    //     method: 'POST',
-    //     // We convert the React state to JSON and send it as the POST body
-    //     body: JSON.stringify(this.props.formValues)
-    //   }).then(function(response) {
-    //     console.log(response)
-    //     return response.json();
-    //   });
-
-    console.log(this.props.formValues);
+    fetch('http://localhost:3000/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        // We convert the React state to JSON and send it as the POST body
+        body: JSON.stringify(object)
+      }).then(function(response) {
+        console.log(response)
+        return response.json();
+      });
+    console.log(object);
 
     e.preventDefault();
   };
+
 
 
   render() {
@@ -33,7 +43,7 @@ class OrderForm extends React.Component {
       <div>
         <h1>New order</h1>
 
-        <form>
+        <form >
           <div className="form-group">
             <label>Order Code</label>
             <input 

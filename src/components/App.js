@@ -7,8 +7,8 @@ import Orders from '../pages/Orders';
 function App() {
   return (
     <BrowserRouter>
-      <Route exact path="/Orders" component={Orders} />
-      <Route exact path="/Orders/new" component={OrderNew} />
+      <Route exact path="/orders" component={Orders} />
+      <Route exact path="/orders/new" component={OrderNew} />
     </BrowserRouter>
   );
 };
