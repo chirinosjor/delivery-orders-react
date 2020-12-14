@@ -2,7 +2,7 @@ import React from 'react';
 import Order from '../components/Order'
 import '../assets/styles/OrderNew.css';
 import OrderForm from '../components/OrderForm';
-import Navbar from '../components/Navbar'
+import Navbar from '../components/Navbar';
 
 class OrderNew extends React.Component {
   state = { 
@@ -25,7 +25,6 @@ class OrderNew extends React.Component {
   }
 
   handleSubmit = e => {
-
     e.preventDefault();
     console.log(this.state.form)
     const object = {
@@ -43,10 +42,7 @@ class OrderNew extends React.Component {
         headers: { 'Content-Type': 'application/json' },
         // We convert the React state to JSON and send it as the POST body
         body: JSON.stringify(object)
-      }).then(function(response) {
-        console.log(response)
-        return response.json();
-      });
+      }).then(alert('Order created'))
   };
 
   render() {

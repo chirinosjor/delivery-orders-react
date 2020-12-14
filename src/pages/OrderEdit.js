@@ -62,10 +62,7 @@ class OrderEdit extends React.Component {
         headers: { 'Content-Type': 'application/json' },
         // We convert the React state to JSON and send it as the POST body
         body: JSON.stringify(object)
-      }).then(function(response) {
-        console.log(response)
-        return response.json();
-      });
+      }).then(alert('Order modified'));
   };
 
   handleRemove = e => {
@@ -76,6 +73,7 @@ class OrderEdit extends React.Component {
     })
     .then(res => res.text()) // or res.json()
     .then(res => console.log(res))
+    .then(alert('Order deleted'))
   }
 
   render() {
