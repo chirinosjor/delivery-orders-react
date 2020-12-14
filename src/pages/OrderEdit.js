@@ -2,7 +2,8 @@ import React from 'react';
 import Order from '../components/Order'
 import '../assets/styles/OrderEdit.css';
 import OrderForm from '../components/OrderForm';
-import Navbar from '../components/Navbar'
+import Navbar from '../components/Navbar';
+import { Link } from "react-router-dom";
 
 class OrderEdit extends React.Component {
   state = { 
@@ -65,8 +66,17 @@ class OrderEdit extends React.Component {
         console.log(response)
         return response.json();
       });
-    console.log(object);
   };
+
+  handleRemove = e => {
+    const id = this.props.match.params.orderId
+    const url = `http://localhost:3000/orders/`;
+    fetch(url + id, {
+      method: 'DELETE',
+    })
+    .then(res => res.text()) // or res.json()
+    .then(res => console.log(res))
+  }
 
   render() {
     return (
@@ -92,6 +102,7 @@ class OrderEdit extends React.Component {
                 onSubmit={this.handleSubmit}
                 formValues={this.state.form}
               />
+              <Link onClick={this.handleRemove} to="/orders/" className="btn btn-danger">Delete order</Link>
             </div>
           </div>
         </div>

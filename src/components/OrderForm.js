@@ -41,8 +41,9 @@ class OrderForm extends React.Component {
           <button className="btn btn-primary">
               Save
           </button>
+          <Link to="/orders/" className="btn btn-primary">Ir al home</Link>
         </form>
-        <Link to="/orders/" className="btn btn-primary">Ir al home</Link>
+
       </div>
     )
   }
