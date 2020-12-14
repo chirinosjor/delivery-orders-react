@@ -1,57 +1,19 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 class OrderForm extends React.Component {
-  // state = {};
-  // handleChange = e => {
-  //   // console.log({value: e.target.value})
-
-  //   this.setState({
-  //     [e.target.name]: e.target.value,
-  //   })
-  // };
-
-  handleClick = e => {
-    console.log('A form was submitted')
-    const object = {
-      "order": {
-        "order_status": "Pending",
-        "order_app": this.props.formValues.orderApp,
-        "order_code": this.props.formValues.orderCode,
-        "order_name": this.props.formValues.orderName,
-      }
-    };
-  
-
-    fetch('http://localhost:3000/orders', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        // We convert the React state to JSON and send it as the POST body
-        body: JSON.stringify(object)
-      }).then(function(response) {
-        console.log(response)
-        return response.json();
-      });
-    console.log(object);
-
-    e.preventDefault();
-  };
-
-
-
   render() {
     return(
       <div>
-        <h1>New order</h1>
-
-        <form >
+        <form onSubmit={this.props.onSubmit}>
           <div className="form-group">
             <label>Order Code</label>
             <input 
               onChange={this.props.onChange} 
               className="form-control" 
               type="text" 
-              name="orderCode"
-              value={this.props.formValues.orderCode}
+              name="order_code"
+              value={this.props.formValues.order_code}
             />
           </div>
 
@@ -61,8 +23,8 @@ class OrderForm extends React.Component {
               onChange={this.props.onChange} 
               className="form-control" 
               type="text" 
-              name="orderName"
-              value={this.props.formValues.orderName}
+              name="order_name"
+              value={this.props.formValues.order_name}
             />
           </div>
 
@@ -72,13 +34,15 @@ class OrderForm extends React.Component {
               onChange={this.props.onChange} 
               className="form-control" 
               type="text" 
-              name="orderApp"
-              value={this.props.formValues.orderApp}
+              name="order_app"
+              value={this.props.formValues.order_app}
             />
           </div>
-
+          <button className="btn btn-primary">
+              Save
+          </button>
         </form>
-        <button onClick={this.handleClick} className="btn btn-primary">Save</button>
+        <Link to="/orders/" className="btn btn-primary">Ir al home</Link>
       </div>
     )
   }

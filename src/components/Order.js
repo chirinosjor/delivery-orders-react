@@ -6,19 +6,19 @@ class Order extends React.Component {
     return(
       <div className="order">
         <div className="order-status">
-          <p>{this.props.orderStatus}</p>
+          <p>{this.props.order_status}</p>
         </div>
 
         <div className="order-code">
-          <p>{this.props.orderCode}</p>
+          <p>{this.props.order_code}</p>
         </div>
 
         <div className="order-name">
-          <p>{this.props.orderName}</p>
+          <p>{this.props.order_name}</p>
         </div>
 
         <div className="order-app">
-          <p>{this.props.orderApp}</p>
+          <p>{this.props.order_app}</p>
         </div>
       </div>
     )

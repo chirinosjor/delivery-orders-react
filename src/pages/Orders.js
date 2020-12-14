@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar'
 
 import OrdersList from '../components/OrdersList';
 import '../assets/styles/Orders.css'
@@ -36,12 +36,7 @@ class Orders extends React.Component {
     return (
       <div>
         <h1>Current orders</h1>
-        <div className="container">
-          <Link to="/Orders/new" className="btn btn-primary">
-            Add new order
-          </Link>
-        </div>
-
+        <Navbar />
         <div>
           <OrdersList orders={this.state.data} />
         </div>
