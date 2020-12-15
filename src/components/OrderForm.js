@@ -7,6 +7,17 @@ class OrderForm extends React.Component {
       <div>
         <form onSubmit={this.props.onSubmit}>
           <div className="form-group">
+            <label>Order Status</label>
+            <input 
+              onChange={this.props.onChange} 
+              className="form-control" 
+              type="text" 
+              name="order_status"
+              value={this.props.formValues.order_status}
+            />
+          </div>
+
+          <div className="form-group">
             <label>Order Code</label>
             <input 
               onChange={this.props.onChange} 

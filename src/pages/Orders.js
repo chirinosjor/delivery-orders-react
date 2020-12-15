@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useEffect,useState} from 'react';
 import Navbar from '../components/Navbar'
 
 import OrdersList from '../components/OrdersList';
 import '../assets/styles/Orders.css'
+import '../assets/styles/Order.css'
 
 class Orders extends React.Component {
   state = {
@@ -22,7 +23,6 @@ class Orders extends React.Component {
       const url = 'http://localhost:3000/orders';
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data)
       this.setState({loading: false, data: data})
     } catch (error){
       this.setState({loading: false, error: error})

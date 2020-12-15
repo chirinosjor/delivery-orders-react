@@ -1,6 +1,32 @@
 .order {
-  background-color: turquoise;
+  background-color: #6b4602;
   text-align: center;
-  padding: 5px;
-  border: 1px black solid;
+  border:black outset;
+  padding: 10px; 
+  width: 250px;
+  margin: 20px;
 }
+
+p {
+  font-family: 'Russo One', sans-serif;
+  color: white;
+  text-transform: uppercase
+}
+
+.order-status > p {
+  font-size: medium;
+}
+
+.order-code > p {
+  font-size: small
+}
+
+.order-name > p {
+  font-weight: bold;
+  font-size: large;
+}
+
+.order-app > p {
+  font-size: small;
+}
+

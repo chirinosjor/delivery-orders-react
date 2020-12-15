@@ -2,6 +2,7 @@ import React from 'react';
 
 import OrdersList from '../components/OrdersList';
 import '../assets/styles/Orders.css'
+import Logo from '../assets/images/logo.png';
 
 class Home extends React.Component {
   state = {
@@ -34,7 +35,9 @@ class Home extends React.Component {
     }
     return (
       <div>
-        <h1>Current orders</h1>
+        <div className="logo">
+          <img src={Logo} alt=""/>
+        </div>
         <div>
           <OrdersList orders={this.state.data} />
         </div>
