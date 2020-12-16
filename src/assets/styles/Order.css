@@ -7,6 +7,34 @@
   margin: 20px;
 }
 
+
+.pending-order {
+  background-color: navy;
+  text-align: center;
+  border:black outset;
+  padding: 10px; 
+  width: 250px;
+  margin: 20px;
+}
+
+.ready-order {
+  background-color: green;
+  text-align: center;
+  border:black outset;
+  padding: 10px; 
+  width: 250px;
+  margin: 20px;
+}
+
+.delayed-order {
+  background-color: brown;
+  text-align: center;
+  border:black outset;
+  padding: 10px; 
+  width: 250px;
+  margin: 20px;
+}
+
 p {
   font-family: 'Russo One', sans-serif;
   color: white;

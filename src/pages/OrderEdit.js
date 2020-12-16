@@ -82,7 +82,7 @@ class OrderEdit extends React.Component {
         <h1>Edit an order</h1>
         <Navbar />
         <div className="container">
-          <div className="row">
+          <div className="row content">
             <div className="col-6">
               <h1>Order Preview</h1>
               <Order 
@@ -92,7 +92,7 @@ class OrderEdit extends React.Component {
                 order_app={this.state.form.order_app} 
                />
             </div>
-
+            
             <div className="col-6">
               <h1>Edit order</h1>
               <OrderForm 
@@ -100,7 +100,7 @@ class OrderEdit extends React.Component {
                 onSubmit={this.handleSubmit}
                 formValues={this.state.form}
               />
-              <Link onClick={this.handleRemove} to="/orders/" className="btn btn-danger">Delete order</Link>
+              <Link onClick={this.handleRemove} to="/orders/" className="btn btn-danger mx-auto">Delete order</Link>
             </div>
           </div>
         </div>

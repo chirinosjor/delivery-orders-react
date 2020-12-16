@@ -4,7 +4,18 @@ import '../assets/styles/Order.css'
 class Order extends React.Component {
   render() {
     return(
-      <div className="order">
+      <div className= {
+        this.props.order_status === 
+        "Pending" ? 
+        'pending-order' : 
+        this.props.order_status === 
+        "Ready" ? 
+        'ready-order' :
+        this.props.order_status === 
+        "Delayed" ? 
+        'delayed-order' :
+        'pending-order'  
+      }>
         <div>
           <p className="order-status">{this.props.order_status}</p>
         </div>

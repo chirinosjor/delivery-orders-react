@@ -29,7 +29,7 @@ class OrderNew extends React.Component {
     console.log(this.state.form)
     const object = {
       "order": {
-        "order_status": "Pending",
+        "order_status": this.state.form.order_status,
         "order_app": this.state.form.order_app,
         "order_code": this.state.form.order_code,
         "order_name": this.state.form.order_name,
@@ -51,10 +51,10 @@ class OrderNew extends React.Component {
         <h1>Adding a new order</h1>
         <Navbar />
         <div className="container">
-          <div className="row">
+          <div className="row content">
             <div className="col-6">
               <h1>Order Preview</h1>
-              <Order 
+              <Order
                 order_status={this.state.form.order_status || "Pending"} 
                 order_code={this.state.form.order_code || "Code"} 
                 order_name={this.state.form.order_name || "Name"} 

@@ -11,7 +11,18 @@ class OrdersList extends React.Component {
           return (
             <div key={order.id}>
               <Link className="text-reset text-decoration-none" to={`/orders/${order.id}/edit`}>
-                <div className="order">
+                <div className= {
+                  order.order_status === 
+                  "Pending" ? 
+                  'pending-order' : 
+                  order.order_status === 
+                  "Ready" ? 
+                  'ready-order' :
+                  order.order_status === 
+                  "Delayed" ? 
+                  'delayed-order' :
+                  'pending-order'  
+                }>
                   <div className="order-status">
                     <p>{order.order_status}</p>
                   </div>
