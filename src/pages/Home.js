@@ -13,6 +13,7 @@ class Home extends React.Component {
 
   componentDidMount () {
     this.fetchData();
+    setInterval('window.location.reload()', 60000); //60000 ml = 1 minute for every refresh
   }
 
   fetchData = async () => {
@@ -30,9 +31,6 @@ class Home extends React.Component {
   }
 
   render() {
-    if(this.state.loading === true) {
-      return 'Loading...'
-    }
     return (
       <div>
         <div className="logo">

@@ -48,7 +48,7 @@ class OrderEdit extends React.Component {
     e.preventDefault();
     const object = {
       "order": {
-        "order_status": "Pending",
+        "order_status": this.state.form.order_status,
         "order_app": this.state.form.order_app,
         "order_code": this.state.form.order_code,
         "order_name": this.state.form.order_name,
