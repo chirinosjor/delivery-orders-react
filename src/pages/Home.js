@@ -3,6 +3,7 @@ import React from 'react';
 import OrdersList from '../components/OrdersList';
 import '../assets/styles/Orders.css'
 import Logo from '../assets/images/logo.png';
+import Loader from '../components/Loader'
 
 class Home extends React.Component {
   state = {
@@ -13,7 +14,11 @@ class Home extends React.Component {
 
   componentDidMount () {
     this.fetchData();
-    setInterval('window.location.reload()', 60000); //60000 ml = 1 minute for every refresh
+    this.intervalId = setInterval(this.fetchData, 1000); //30000 ml = 30 seconds for every refresh
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.intervalId)
   }
 
   fetchData = async () => {
@@ -31,6 +36,9 @@ class Home extends React.Component {
   }
 
   render() {
+    if (this.state.loading === true && !this.state.data) {
+      return <Loader />;
+    }
     return (
       <div>
         <div className="logo">

@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import OrdersList from '../components/OrdersList';
 import '../assets/styles/Orders.css'
 import '../assets/styles/Order.css'
+import Loader from '../components/Loader'
 
 class Orders extends React.Component {
   state = {
@@ -14,6 +15,7 @@ class Orders extends React.Component {
 
   componentDidMount () {
     this.fetchData();
+    setInterval(this.fetchData, 1000); //30000 ml = 30 seconds for every refresh
   }
 
   fetchData = async () => {
@@ -30,8 +32,8 @@ class Orders extends React.Component {
   }
 
   render() {
-    if(this.state.loading === true) {
-      return 'Loading...'
+    if (this.state.loading === true && !this.state.data) {
+      return <Loader />;
     }
     return (
       <div>
