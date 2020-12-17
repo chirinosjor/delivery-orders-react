@@ -1,16 +1,17 @@
+
 .order-new h1 {
   text-align: center;
 }
 
 .content {
   margin-top: 50px;
-  border: 1px solid black;
 }
 
-.order-preview {
-  text-align: right;
+#root > div > div.container > div > div:nth-child(2) > div > div {
+  width: 60%;
+  margin: 0 auto;
 }
 
-#root > div > div:nth-child(3) > div > div:nth-child(1) > div {
-  margin-left: 150px;
+#root > div > div.container > div > div:nth-child(2) > h1 {
+  margin-bottom: 100px;
 }

@@ -43,25 +43,16 @@ class OrderNew extends React.Component {
         // We convert the React state to JSON and send it as the POST body
         body: JSON.stringify(object)
       }).then(alert('Order created'))
+      .then(this.props.history.push('/orders'));
   };
 
   render() {
     return (
       <div className="order-new">
+        <Navbar />        
         <h1>Adding a new order</h1>
-        <Navbar />
         <div className="container">
           <div className="row content">
-            <div className="col-6">
-              <h1>Order Preview</h1>
-              <Order
-                order_status={this.state.form.order_status || "Pending"} 
-                order_code={this.state.form.order_code || "Code"} 
-                order_name={this.state.form.order_name || "Name"} 
-                order_app={this.state.form.order_app || "App"} 
-               />
-            </div>
-
             <div className="col-6">
               <h1>New order</h1>
               <OrderForm 
@@ -70,6 +61,17 @@ class OrderNew extends React.Component {
                 formValues={this.state.form} 
               />
             </div>
+            <div className="col-6">
+              <h1>Order Preview</h1>
+              <div className="order-preview">
+                <Order
+                  order_status={this.state.form.order_status || "Pending"} 
+                  order_code={this.state.form.order_code || "Code"} 
+                  order_name={this.state.form.order_name || "Name"} 
+                  order_app={this.state.form.order_app || "App"} 
+                />
+               </div>
+            </div>            
           </div>
         </div>
       </div>

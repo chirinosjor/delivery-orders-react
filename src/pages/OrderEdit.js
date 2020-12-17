@@ -62,7 +62,8 @@ class OrderEdit extends React.Component {
         headers: { 'Content-Type': 'application/json' },
         // We convert the React state to JSON and send it as the POST body
         body: JSON.stringify(object)
-      }).then(alert('Order modified'));
+      }).then(alert('Order modified'))
+      .then(this.props.history.push('/orders'));
   };
 
   handleRemove = e => {
@@ -79,28 +80,29 @@ class OrderEdit extends React.Component {
   render() {
     return (
       <div className="order-edit">
-        <h1>Edit an order</h1>
         <Navbar />
+        <h1>Edit an order</h1>
         <div className="container">
           <div className="row content">
             <div className="col-6">
-              <h1>Order Preview</h1>
-              <Order 
-                order_status={this.state.form.order_status} 
-                order_code={this.state.form.order_code} 
-                order_name={this.state.form.order_name} 
-                order_app={this.state.form.order_app} 
-               />
+                <h1>Edit order</h1>
+                <OrderForm 
+                  onChange={this.handleChange}
+                  onSubmit={this.handleSubmit}
+                  formValues={this.state.form}
+                />
             </div>
-            
             <div className="col-6">
-              <h1>Edit order</h1>
-              <OrderForm 
-                onChange={this.handleChange}
-                onSubmit={this.handleSubmit}
-                formValues={this.state.form}
-              />
-              <Link onClick={this.handleRemove} to="/orders/" className="btn btn-danger mx-auto">Delete order</Link>
+              <h1>Order Preview</h1>
+              <div className="order-preview">
+                <Order 
+                  order_status={this.state.form.order_status} 
+                  order_code={this.state.form.order_code} 
+                  order_name={this.state.form.order_name} 
+                  order_app={this.state.form.order_app} 
+                />
+              </div>
+               <Link onClick={this.handleRemove} to="/orders/" className="btn btn-danger d-block p-3 mt-5 w-90">Delete order</Link>
             </div>
           </div>
         </div>

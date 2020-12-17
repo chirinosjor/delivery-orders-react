@@ -4,13 +4,4 @@
 
 .content {
   margin-top: 50px;
-  border: 1px solid black;
-}
-
-.order-preview {
-  text-align: right;
-}
-
-#root > div > div:nth-child(3) > div > div:nth-child(1) > div {
-  margin-left: 150px;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import OrdersList from '../components/OrdersList';
+import '../assets/styles/Home.css'
 import '../assets/styles/Orders.css'
 import Logo from '../assets/images/logo.png';
 import Loader from '../components/Loader'
@@ -14,7 +15,7 @@ class Home extends React.Component {
 
   componentDidMount () {
     this.fetchData();
-    this.intervalId = setInterval(this.fetchData, 1000); //30000 ml = 30 seconds for every refresh
+    this.intervalId = setInterval(this.fetchData, 30000); //30000 ml = 30 seconds for every refresh
   }
 
   componentWillUnmount () {

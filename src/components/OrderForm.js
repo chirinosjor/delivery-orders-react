@@ -5,7 +5,7 @@ class OrderForm extends React.Component {
   render() {
     return(
       <div>
-        <form onSubmit={this.props.onSubmit}>
+        <form onSubmit={this.props.onSubmit} className="order-form">
           <div className="form-group">
             <label>Order Status</label>
             <select 
@@ -56,7 +56,7 @@ class OrderForm extends React.Component {
             </select>
           </div>
           <button className="btn btn-primary">
-              Save
+              Save order
           </button>
         </form>
       </div>

@@ -15,7 +15,7 @@ class Orders extends React.Component {
 
   componentDidMount () {
     this.fetchData();
-    setInterval(this.fetchData, 1000); //30000 ml = 30 seconds for every refresh
+    setInterval(this.fetchData, 30000); //30000 ml = 30 seconds for every refresh
   }
 
   fetchData = async () => {
@@ -37,8 +37,8 @@ class Orders extends React.Component {
     }
     return (
       <div>
-        <h1>Current orders</h1>
         <Navbar />
+        <h1>Current orders</h1>
         <div>
           <OrdersList orders={this.state.data} />
         </div>

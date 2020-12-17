@@ -1,0 +1,25 @@
+.order-form {
+  border-left: 10px solid darkgray;
+  border-bottom: 10px solid darkgray;
+  border-top: 5px solid darkgray;
+  border-right: 5px solid darkgray;
+  padding: 10px;
+}
+
+
+input[type="text"] {
+  padding: 10px 16px;
+  font-size: 16px;
+  color: var(--black);
+  background-color: #fff;
+  border: 1px solid #597183;
+  border-radius: 8px;
+  margin-top: 5px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(21, 156, 228, 0.4);
+}
