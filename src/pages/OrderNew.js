@@ -40,7 +40,7 @@ class OrderNew extends React.Component {
       }
     };
     try {
-      fetch('http://localhost:3000/orders', {
+      fetch('https://delivery-orders-api.herokuapp.com/orders', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         // We convert the React state to JSON and send it as the POST body

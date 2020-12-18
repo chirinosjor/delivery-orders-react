@@ -26,7 +26,7 @@ class Home extends React.Component {
     this.setState({ loading: true, error: null})
 
     try {
-      const url = 'http://localhost:3000/orders';
+      const url = 'https://delivery-orders-api.herokuapp.com/orders';
       const response = await fetch(url);
       const data = await response.json();
       console.log(data)

@@ -24,7 +24,7 @@ class OrderEdit extends React.Component {
 
     try {
       const id = this.props.match.params.orderId
-      const url = `http://localhost:3000/orders/${id}`;
+      const url = `https://delivery-orders-api.herokuapp.com/orders/${id}`;
       const response = await fetch(url);
       const data = await response.json();
       this.setState({loading: false, form: data})
@@ -56,7 +56,7 @@ class OrderEdit extends React.Component {
     };
   
     const id = this.props.match.params.orderId
-    const url = `http://localhost:3000/orders/${id}`;
+    const url = `https://delivery-orders-api.herokuapp.com/orders/${id}`;
     fetch(url, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -68,7 +68,7 @@ class OrderEdit extends React.Component {
 
   handleRemove = e => {
     const id = this.props.match.params.orderId
-    const url = `http://localhost:3000/orders/`;
+    const url = `https://delivery-orders-api.herokuapp.com/orders/`;
     fetch(url + id, {
       method: 'DELETE',
     })
