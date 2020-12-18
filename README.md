@@ -2,10 +2,15 @@
 
 This is a personal project where a restaurant's current orders can be managed so you can have control with all the delivery drivers and the wait time until they get the order when its ready.
 
+The project is now available to check in:
+https://deliver-orders-react.herokuapp.com/
+
 ## API
 
 It uses an API made on Ruby on Rails that stores the orders and its a CRUD Api to manage the orders. the link to the API repository is:
  https://github.com/chirinosjor/delivery-orders-api
+ And the url to the available api is:
+ https://deliver-orders-react.herokuapp.com/
 
 ## Pages
 
