@@ -1,14 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom'
 
-import OrderNew from '../pages/OrderNew';
+import Home from '../pages/Home';
 import Orders from '../pages/Orders';
+import OrderNew from '../pages/OrderNew';
+import OrderEdit from '../pages/OrderEdit';
 
 function App() {
   return (
     <BrowserRouter>
-      <Route exact path="/Orders" component={Orders} />
-      <Route exact path="/Orders/new" component={OrderNew} />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/orders" component={Orders} />
+      <Route exact path="/orders/new" component={OrderNew} />
+      <Route exact path="/orders/:orderId/edit" component={OrderEdit} />
     </BrowserRouter>
   );
 };

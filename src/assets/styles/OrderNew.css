@@ -1,7 +1,7 @@
-.order-new {
-  background-color: darkgreen;
-}
-
 .order-new h1 {
   text-align: center;
+}
+
+.content {
+  margin-top: 50px;
 }

@@ -1,15 +1,5 @@
-.order {
-  background-color: turquoise;
-  width: 200px;
-  text-align: center;
-  padding: 5px;
-  border: 1px black solid;
-  margin: 10px;
-}
-
 .order-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-left: 50px;
+  justify-content: center;
 }

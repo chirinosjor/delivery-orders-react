@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Delivery orders control with REACT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a personal project where a restaurant's current orders can be managed so you can have control with all the delivery drivers and the wait time until they get the order when its ready.
 
-## Available Scripts
+## API
 
-In the project directory, you can run:
+It uses an API made on Ruby on Rails that stores the orders and its a CRUD Api to manage the orders. the link to the API repository is:
+ https://github.com/chirinosjor/delivery-orders-api
 
-### `yarn start`
+## Pages
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+There are some pages in the project to manage/view current orders
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+ - Home: It is the default view and it is supposed to be shown to the delivery drivers and it is a public view. (Does not have a navbar)
 
-### `yarn test`
+ - /Orders: It shares the same view with Home, the difference is that the views in this url can be changed without affecting the one shown to the delivery drivers, it is a private view where any order can be clicked so it can be edited.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ - /Orders/id/edit: It is shown when an order is clicked and it shows its current status, code, name and app. All of this fields can be changed to edit an Order. NOTE: in this view there is a "Delete order" button to destroy the data of this order in the API.
 
-### `yarn build`
+ - /Orders/new: This page is used to create new orders, it has the same component than the edit page and here fields can be filled with information to create a new order.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Navbar
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+There is a navbar in the private views (New, edit, orders) with:
+ 
+ - Logo: a Logo with a link to the home page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ - Navigation buttons: to navigate inside the webpage
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ - Social network buttons: all the buttons are link to my social network accounts.

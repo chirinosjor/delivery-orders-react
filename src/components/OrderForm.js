@@ -1,47 +1,36 @@
 import React from 'react';
+import '../assets/styles/OrderForm.css'
 
 class OrderForm extends React.Component {
-  // state = {};
-  // handleChange = e => {
-  //   // console.log({value: e.target.value})
-
-  //   this.setState({
-  //     [e.target.name]: e.target.value,
-  //   })
-  // };
-
-  handleClick = e => {
-    alert('A form was submitted')
-
-    // fetch('https://your-node-server-here.com/api/endpoint', {
-    //     method: 'POST',
-    //     // We convert the React state to JSON and send it as the POST body
-    //     body: JSON.stringify(this.props.formValues)
-    //   }).then(function(response) {
-    //     console.log(response)
-    //     return response.json();
-    //   });
-
-    console.log(this.props.formValues);
-
-    e.preventDefault();
-  };
-
-
   render() {
     return(
       <div>
-        <h1>New order</h1>
+        <form onSubmit={this.props.onSubmit} className="order-form">
+          <div className="form-group">
+            <label>Order Status</label>
+            <select 
+            onChange={this.props.onChange} 
+            className="form-control"
+            name="order_status"
+            value={this.props.formValues.order_status}
+            required
+            >
+              <option value="" disabled hidden>Choose a status</option>
+              <option value="Pending">Pending</option>
+              <option value="Ready">Ready</option>
+              <option value="Delayed">Delayed</option>
+            </select>
+          </div>
 
-        <form>
           <div className="form-group">
             <label>Order Code</label>
             <input 
               onChange={this.props.onChange} 
               className="form-control" 
               type="text" 
-              name="orderCode"
-              value={this.props.formValues.orderCode}
+              name="order_code"
+              value={this.props.formValues.order_code}
+              required
             />
           </div>
 
@@ -51,24 +40,31 @@ class OrderForm extends React.Component {
               onChange={this.props.onChange} 
               className="form-control" 
               type="text" 
-              name="orderName"
-              value={this.props.formValues.orderName}
+              name="order_name"
+              value={this.props.formValues.order_name}
+              required
             />
           </div>
 
           <div className="form-group">
             <label>Order App</label>
-            <input 
-              onChange={this.props.onChange} 
-              className="form-control" 
-              type="text" 
-              name="orderApp"
-              value={this.props.formValues.orderApp}
-            />
+            <select 
+            onChange={this.props.onChange} 
+            className="form-control" 
+            name="order_app"
+            value={this.props.formValues.order_app}
+            required
+            >
+              <option value="" disabled hidden>Choose an App</option>
+              <option value="Uber Eats">Uber Eats</option>
+              <option value="Rappi">Rappi</option>
+              <option value="Pedidos Ya!">Pedidos Ya!</option>
+            </select>
           </div>
-
+          <button className="btn btn-primary">
+              Save order
+          </button>
         </form>
-        <button onClick={this.handleClick} className="btn btn-primary">Save</button>
       </div>
     )
   }

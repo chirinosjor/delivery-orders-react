@@ -1,95 +1,53 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar'
 
 import OrdersList from '../components/OrdersList';
 import '../assets/styles/Orders.css'
+import '../assets/styles/Order.css'
+import PageLoading from '../components/PageLoading';
+import PageError from '../components/PageError';
 
 class Orders extends React.Component {
   state = {
-    data: [
-      {
-        "orderId": "1",
-        "orderStatus": "Pending", 
-        "orderCode": "ABC123",
-        "orderName": "Pepito Perez",
-        "orderApp": "Rappi"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },
-      {
-        "orderId": "3",
-        "orderStatus": "Pending", 
-        "orderCode": "RFV321",
-        "orderName": "Juan Rivas",
-        "orderApp": "Uber Eats"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },
-      {
-        "orderId": "2",
-        "orderStatus": "Pending", 
-        "orderCode": "CBA654",
-        "orderName": "Sharon Soto",
-        "orderApp": "Pedidos Ya"
-      },   
-    ]
+    loading: true,
+    error: null,
+    data: []
+  };
+
+  componentDidMount () {
+    this.fetchData();
+    this.intervalId = setInterval(this.fetchData, 30000); //30000 ml = 30 seconds for every refresh
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.intervalId)
+  }
+
+  fetchData = async () => {
+    this.setState({ loading: true, error: null})
+
+    try {
+      const url = 'https://delivery-orders-api.herokuapp.com/orders';
+      const response = await fetch(url);
+      const data = await response.json();
+      this.setState({loading: false, data: data})
+    } catch (error){
+      this.setState({loading: false, error: error})
+    }
   }
 
   render() {
+    if (this.state.loading === true && !this.state.data) {
+      return <PageLoading />;
+    }
+
+    if (this.state.error) {
+      return <PageError error={this.state.error} />;
+    }
     return (
       <div>
+        <Navbar />
         <h1>Current orders</h1>
-        <div className="container">
-          <Link to="/Orders/new" className="btn btn-primary">
-            Add new order
-          </Link>
-        </div>
-
         <div>
           <OrdersList orders={this.state.data} />
         </div>

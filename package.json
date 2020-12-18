@@ -3,11 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.13",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^4.5.3",
+<<<<<<< HEAD
     "express": "^4.17.1",
+=======
+    "hover.css": "^2.3.2",
+    "mdbootstrap": "^4.19.2",
+    "prop-types": "^15.7.2",
+>>>>>>> 3f60c6d3166b6ccef0a27930d1cc66ee66db9de8
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -37,5 +47,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "faker": "^5.1.0",
+    "json-server": "^0.16.3",
+    "npm-run-all": "^4.1.5"
   }
 }
