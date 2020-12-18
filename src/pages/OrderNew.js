@@ -3,6 +3,8 @@ import Order from '../components/Order'
 import '../assets/styles/OrderNew.css';
 import OrderForm from '../components/OrderForm';
 import Navbar from '../components/Navbar';
+import PageLoading from '../components/PageLoading';
+import PageError from '../components/PageError';
 
 class OrderNew extends React.Component {
   state = { 
@@ -11,7 +13,9 @@ class OrderNew extends React.Component {
     order_app: '',
     order_name: '',
     order_status: '',
-    } 
+    },
+    loading: false,
+    error: null 
   };
 
   handleChange = e => {
@@ -26,7 +30,7 @@ class OrderNew extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state.form)
+    this.setState({ loading: true, error: null });
     const object = {
       "order": {
         "order_status": this.state.form.order_status,
@@ -35,18 +39,30 @@ class OrderNew extends React.Component {
         "order_name": this.state.form.order_name,
       }
     };
-    console.log(object);
-
-    fetch('http://localhost:3000/orders', {
+    try {
+      fetch('http://localhost:3000/orders', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         // We convert the React state to JSON and send it as the POST body
         body: JSON.stringify(object)
-      }).then(alert('Order created'))
-      .then(this.props.history.push('/orders'));
+      })
+      .then(alert('Order created'))
+      .then(this.props.history.push('/orders'))
+      this.setState({ loading: false });  
+    } catch (error){
+      this.setState({ loading: false, error: error });
+      console.log(error)
+    }
   };
 
   render() {
+    if (this.state.loading === true && !this.state.data) {
+      return <PageLoading />;
+    }
+
+    if (this.state.error) {
+      return <PageError error={this.state.error} />;
+    }
     return (
       <div className="order-new">
         <Navbar />        

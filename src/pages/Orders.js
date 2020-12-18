@@ -1,10 +1,11 @@
-import React, {useEffect,useState} from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar'
 
 import OrdersList from '../components/OrdersList';
 import '../assets/styles/Orders.css'
 import '../assets/styles/Order.css'
-import Loader from '../components/Loader'
+import PageLoading from '../components/PageLoading';
+import PageError from '../components/PageError';
 
 class Orders extends React.Component {
   state = {
@@ -15,7 +16,11 @@ class Orders extends React.Component {
 
   componentDidMount () {
     this.fetchData();
-    setInterval(this.fetchData, 30000); //30000 ml = 30 seconds for every refresh
+    this.intervalId = setInterval(this.fetchData, 30000); //30000 ml = 30 seconds for every refresh
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.intervalId)
   }
 
   fetchData = async () => {
@@ -33,7 +38,11 @@ class Orders extends React.Component {
 
   render() {
     if (this.state.loading === true && !this.state.data) {
-      return <Loader />;
+      return <PageLoading />;
+    }
+
+    if (this.state.error) {
+      return <PageError error={this.state.error} />;
     }
     return (
       <div>

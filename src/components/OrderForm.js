@@ -13,7 +13,9 @@ class OrderForm extends React.Component {
             className="form-control"
             name="order_status"
             value={this.props.formValues.order_status}
+            required
             >
+              <option value="" disabled hidden>Choose a status</option>
               <option value="Pending">Pending</option>
               <option value="Ready">Ready</option>
               <option value="Delayed">Delayed</option>
@@ -28,6 +30,7 @@ class OrderForm extends React.Component {
               type="text" 
               name="order_code"
               value={this.props.formValues.order_code}
+              required
             />
           </div>
 
@@ -39,6 +42,7 @@ class OrderForm extends React.Component {
               type="text" 
               name="order_name"
               value={this.props.formValues.order_name}
+              required
             />
           </div>
 
@@ -49,7 +53,9 @@ class OrderForm extends React.Component {
             className="form-control" 
             name="order_app"
             value={this.props.formValues.order_app}
+            required
             >
+              <option value="" disabled hidden>Choose an App</option>
               <option value="Uber Eats">Uber Eats</option>
               <option value="Rappi">Rappi</option>
               <option value="Pedidos Ya!">Pedidos Ya!</option>
