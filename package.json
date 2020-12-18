@@ -11,13 +11,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^4.5.3",
-<<<<<<< HEAD
     "express": "^4.17.1",
-=======
-    "hover.css": "^2.3.2",
-    "mdbootstrap": "^4.19.2",
-    "prop-types": "^15.7.2",
->>>>>>> 3f60c6d3166b6ccef0a27930d1cc66ee66db9de8
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
