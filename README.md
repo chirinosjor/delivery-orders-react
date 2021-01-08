@@ -1,6 +1,6 @@
 # Delivery orders control with REACT
 
-This is a personal project where a restaurant can manage the current orders so they can have control with delivery drivers and the wait time until they get the orders when they are ready.
+This is a personal project where a restaurant can manage their current orders so they can have control with the wait time and the delivery drivers.
 
 The project is now available in:
 https://deliver-orders-react.herokuapp.com/
